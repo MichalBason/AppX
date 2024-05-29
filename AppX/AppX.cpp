@@ -195,8 +195,12 @@ public:
 int __cdecl main(int argc, char** argv)
 {
         srand((unsigned)time(NULL));
-        
-        serverSocket* servSock = new serverSocket(DEFAULT_PORT);
+
+        const char* port = "27015";
+        if (argc == 2)
+            port = argv[1];
+
+        serverSocket* servSock = new serverSocket(port);
 
         FullImageMatrix* mat;
 
